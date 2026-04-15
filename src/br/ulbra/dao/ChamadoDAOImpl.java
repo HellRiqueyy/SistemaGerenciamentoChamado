@@ -21,9 +21,9 @@ import java.util.List;
 public class ChamadoDAOImpl implements ChamadoDAO {
 
     public void salvar(Chamado chamado) {
-        String sql = "INSERT INTO chamado (solicitante, sala, equipamento_tag,"
+        String sql = "INSERT INTO chamado_tecnico (solicitante, sala, equipamento_tag,"
                 + "problema_relatado, diagnostico_tecnico, prioridade,"
-                + "status, data_abertura) VALUES (?, ?, ?, ?, ?, ?, ?, ?,)";
+                + "status, data_abertura) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection conn = ConnectionFactory.getConnection();
                 PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -50,7 +50,7 @@ public class ChamadoDAOImpl implements ChamadoDAO {
      */
     @Override
     public List<Chamado> listar() {
-        String sql = "SELECT * FROM chamdo";
+        String sql = "SELECT * FROM chamado_tecnico";
         List<Chamado> lista = new ArrayList<>();
 
         try (Connection conn = ConnectionFactory.getConnection();
@@ -81,7 +81,7 @@ public class ChamadoDAOImpl implements ChamadoDAO {
 
     @Override
     public Chamado buscarPorId(Long id) {
-        String sql = "SELECT * FROM chamado WHERE id = ?";
+        String sql = "SELECT * FROM chamado_tecnico WHERE id = ?";
 
         try (Connection conn = ConnectionFactory.getConnection();
                 PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -112,7 +112,7 @@ public class ChamadoDAOImpl implements ChamadoDAO {
 
     @Override
     public void atualizar(Chamado chamado) {
-        String sql = "UPDATE chamado SET solicitante = ?, sala = ?,"
+        String sql = "UPDATE chamado_tecnico SET solicitante = ?, sala = ?,"
                 + "equipamento_tag = ?, problema_relatado = ?,"
                 + "diagnostico_tecnico = ?, prioridade = ?,"
                 + "status = ?, data_abertura = ? WHERE id = ?";
@@ -128,6 +128,7 @@ public class ChamadoDAOImpl implements ChamadoDAO {
             stmt.setString(6, chamado.getPrioridade());
             stmt.setString(7, chamado.getStatus());
             stmt.setDate(8, (Date) chamado.getDataAbertura());
+            stmt.setLong(9, chamado.getId());
             stmt.executeUpdate();
 
         } catch (Exception e) {
@@ -137,7 +138,7 @@ public class ChamadoDAOImpl implements ChamadoDAO {
 
     @Override
     public void deletar(Long id) {
-        String sql = "DELETE FROM chamado WHERE id = ?";
+        String sql = "DELETE FROM chamado_tecnico WHERE id = ?";
 
         try (Connection conn = ConnectionFactory.getConnection();
                 PreparedStatement stmt = conn.prepareStatement(sql)) {

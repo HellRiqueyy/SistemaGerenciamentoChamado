@@ -34,7 +34,7 @@ public class ChamadoService {
             throw new IllegalArgumentException("O campo sala não pode exceder 50 caracteres.");
         }
 
-        if (chamado.getEquipamentoTag() != null && chamado.getEquipamentoTag().length() > 50) {
+        if (chamado.getEquipamentoTag().length() > 50) {
             throw new IllegalArgumentException("A tag do equipamento não pode exceder 50 caracteres.");
         }
 
@@ -44,10 +44,6 @@ public class ChamadoService {
 
         if (chamado.getPrioridade() != null && chamado.getPrioridade().length() > 20) {
             throw new IllegalArgumentException("O campo prioridade não pode exceder 20 caracteres.");
-        }
-
-        if (chamado.getStatus() != null && chamado.getStatus().length() > 20) {
-            throw new IllegalArgumentException("O campo status não pode exceder 20 caracteres.");
         }
 
         if (chamado.getDataAbertura() == null) {

@@ -14,9 +14,8 @@ import java.util.Date;
 public class Chamado {
 
     private Long id;
-    private String solicitante;
-    private String sala;
-    private String equipamentoTag;
+    private Long id_usuario;
+    private Long id_equipamento;
     private String problemaRelatado;
     private String diagnosticoTecnico;
     private String prioridade;
@@ -26,11 +25,10 @@ public class Chamado {
     public Chamado() {
     }
 
-    public Chamado(Long id, String solicitante, String sala, String equipamentoTag, String problemaRelatado, String diagnosticoTecnico, String prioridade, String status, Date dataAbertura) {
+    public Chamado(Long id, Long id_usuario, Long id_equipamento, String problemaRelatado, String diagnosticoTecnico, String prioridade, String status, Date dataAbertura) {
         this.id = id;
-        this.solicitante = solicitante;
-        this.sala = sala;
-        this.equipamentoTag = equipamentoTag;
+        this.id_usuario = id_usuario;
+        this.id_equipamento = id_equipamento;
         this.problemaRelatado = problemaRelatado;
         this.diagnosticoTecnico = diagnosticoTecnico;
         this.prioridade = prioridade;
@@ -46,28 +44,20 @@ public class Chamado {
         this.id = id;
     }
 
-    public String getSolicitante() {
-        return solicitante;
+    public Long getId_usuario() {
+        return id_usuario;
     }
 
-    public void setSolicitante(String solicitante) {
-        this.solicitante = solicitante;
+    public void setId_usuario(Long id_usuario) {
+        this.id_usuario = id_usuario;
     }
 
-    public String getSala() {
-        return sala;
+    public Long getId_equipamento() {
+        return id_equipamento;
     }
 
-    public void setSala(String sala) {
-        this.sala = sala;
-    }
-
-    public String getEquipamentoTag() {
-        return equipamentoTag;
-    }
-
-    public void setEquipamentoTag(String equipamentoTag) {
-        this.equipamentoTag = equipamentoTag;
+    public void setId_equipamento(Long id_equipamento) {
+        this.id_equipamento = id_equipamento;
     }
 
     public String getProblemaRelatado() {
@@ -112,7 +102,7 @@ public class Chamado {
 
     @Override
     public String toString() {
-        return "Chamado{" + "id=" + id + ", solicitante=" + solicitante + ", sala=" + sala + ", equipamentoTag=" + equipamentoTag + ", problemaRelatado=" + problemaRelatado + ", diagnosticoTecnico=" + diagnosticoTecnico + ", prioridade=" + prioridade + ", status=" + status + ", dataAbertura=" + dataAbertura + '}';
+        return "Chamado{" + "id=" + id + ", id_usuario=" + id_usuario + ", id_equipamento=" + id_equipamento + ", problemaRelatado=" + problemaRelatado + ", diagnosticoTecnico=" + diagnosticoTecnico + ", prioridade=" + prioridade + ", status=" + status + ", dataAbertura=" + dataAbertura + '}';
     }
 
 }

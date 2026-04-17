@@ -23,19 +23,12 @@ public class ChamadoService {
 
     public void cadastrar(Chamado chamado) {
 
-        if (chamado.getSolicitante() == null || chamado.getSolicitante().trim().isEmpty()) {
+        if (chamado.getId_usuario() == null) {
             throw new IllegalArgumentException("O solicitante é obrigatório.");
         }
-        if (chamado.getSolicitante().length() > 100) {
-            throw new IllegalArgumentException("O nome do solicitante não pode exceder 100 caracteres.");
-        }
 
-        if (chamado.getSala() != null && chamado.getSala().length() > 50) {
-            throw new IllegalArgumentException("O campo sala não pode exceder 50 caracteres.");
-        }
-
-        if (chamado.getEquipamentoTag().length() > 50) {
-            throw new IllegalArgumentException("A tag do equipamento não pode exceder 50 caracteres.");
+        if (chamado.getId_equipamento() == null) {
+            throw new IllegalArgumentException("A tag do equipamento é obrigatório.");
         }
 
         if (chamado.getProblemaRelatado() == null || chamado.getProblemaRelatado().trim().isEmpty()) {

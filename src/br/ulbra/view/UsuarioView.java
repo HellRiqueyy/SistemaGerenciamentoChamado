@@ -335,7 +335,7 @@ public class UsuarioView extends javax.swing.JFrame {
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         int confirm = JOptionPane.showConfirmDialog(null,
-                "Deseja excluir o chamado ?", "Exclusão", JOptionPane.YES_NO_OPTION);
+                "Deseja excluir o usuário ?", "Exclusão", JOptionPane.YES_NO_OPTION);
         Long id = Long.parseLong(txtId.getText());
         if (confirm == JOptionPane.YES_OPTION) {
             String msg = controller.deletar(id);

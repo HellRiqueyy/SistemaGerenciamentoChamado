@@ -34,9 +34,8 @@ public class ChamadoView extends javax.swing.JFrame {
         for (Chamado u : controller.listar()) {
             model.addRow(new Object[]{
                 u.getId(),
-                u.getSolicitante(),
-                u.getSala(),
-                u.getEquipamentoTag(),
+                u.getId_usuario(),
+                u.getId_equipamento(),
                 u.getProblemaRelatado(),
                 u.getDiagnosticoTecnico(),
                 u.getPrioridade(),
@@ -58,11 +57,9 @@ public class ChamadoView extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtSolicitante = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        txtSala = new javax.swing.JTextField();
+        txtUsuario = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtEquipamentoTag = new javax.swing.JTextField();
+        txtEquipamento = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtProblemaRelatado = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -96,22 +93,17 @@ public class ChamadoView extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(232, 241, 242));
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(232, 241, 242));
-        jLabel1.setText("Solicitante");
+        jLabel1.setText("ID_Usuário");
 
         jLabel2.setBackground(new java.awt.Color(232, 241, 242));
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(232, 241, 242));
         jLabel2.setText("CADASTRO CHAMADO");
 
-        jLabel3.setBackground(new java.awt.Color(232, 241, 242));
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(232, 241, 242));
-        jLabel3.setText("Sala");
-
         jLabel4.setBackground(new java.awt.Color(232, 241, 242));
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(232, 241, 242));
-        jLabel4.setText("Equipamento");
+        jLabel4.setText("ID_Equipamento");
 
         jLabel5.setBackground(new java.awt.Color(232, 241, 242));
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -172,13 +164,13 @@ public class ChamadoView extends javax.swing.JFrame {
 
         tblChamado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Id", "Solicitante", "Sala", "Equipamento", "Problema", "Diagnóstico", "Prioridade", "Status", "Data Abertura"
+                "Id", "Id_usuario", "Id_equipamento", "Problema", "Diagnóstico", "Prioridade", "Status", "Data Abertura"
             }
         ));
         tblChamado.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -234,26 +226,23 @@ public class ChamadoView extends javax.swing.JFrame {
                                 .addGap(59, 59, 59))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(44, 44, 44)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel10)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jLabel1)
-                                        .addComponent(txtSolicitante)
-                                        .addComponent(jLabel4)
-                                        .addComponent(txtEquipamentoTag)
-                                        .addComponent(jLabel6)
-                                        .addComponent(txtDiagnostico, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel1)
+                                    .addComponent(txtUsuario)
+                                    .addComponent(jLabel4)
+                                    .addComponent(txtEquipamento)
+                                    .addComponent(jLabel6)
+                                    .addComponent(txtDiagnostico, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(61, 61, 61)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel8)
                             .addComponent(jLabel9)
-                            .addComponent(jLabel3)
                             .addComponent(jLabel5)
                             .addComponent(txtProblemaRelatado)
-                            .addComponent(txtSala)
                             .addComponent(txtData)
-                            .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10))))
                 .addGap(73, 73, 73))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -264,26 +253,20 @@ public class ChamadoView extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(jLabel10)
+                .addContainerGap(145, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtId, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtSolicitante, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtSala, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                    .addComponent(txtId))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtEquipamentoTag, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtEquipamento, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -363,9 +346,8 @@ public class ChamadoView extends javax.swing.JFrame {
     private void tblChamadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblChamadoMouseClicked
         int linha = tblChamado.getSelectedRow();
         txtId.setText(tblChamado.getValueAt(linha, 0).toString());
-        txtSolicitante.setText(tblChamado.getValueAt(linha, 1).toString());
-        txtSala.setText(tblChamado.getValueAt(linha, 2).toString());
-        txtEquipamentoTag.setText(tblChamado.getValueAt(linha, 3).toString());
+        txtUsuario.setText(tblChamado.getValueAt(linha, 1).toString());
+        txtEquipamento.setText(tblChamado.getValueAt(linha, 3).toString());
         txtProblemaRelatado.setText(tblChamado.getValueAt(linha, 4).toString());
         txtDiagnostico.setText(tblChamado.getValueAt(linha, 5).toString());
         txtPrioridade.setSelectedItem(tblChamado.getValueAt(linha, 6).toString());
@@ -395,9 +377,8 @@ public class ChamadoView extends javax.swing.JFrame {
 
             // 3. Agora passe 'dataSql' para o seu controller
             String mensagem = controller.cadastrar(
-                    txtSolicitante.getText(),
-                    txtSala.getText(),
-                    txtEquipamentoTag.getText(),
+                    Long.parseLong(txtUsuario.getText()),
+                    Long.parseLong(txtEquipamento.getText()),
                     txtProblemaRelatado.getText(),
                     txtDiagnostico.getText(),
                     txtPrioridade.getSelectedItem().toString(),
@@ -432,9 +413,8 @@ public class ChamadoView extends javax.swing.JFrame {
             // 3. Agora passe 'dataSql' para o seu controller
             String mensagem = controller.atualizar(
                     id,
-                    txtSolicitante.getText(),
-                    txtSala.getText(),
-                    txtEquipamentoTag.getText(),
+                    Long.parseLong(txtUsuario.getText()),
+                    Long.parseLong(txtEquipamento.getText()),
                     txtProblemaRelatado.getText(),
                     txtDiagnostico.getText(),
                     txtPrioridade.getSelectedItem().toString(),
@@ -468,9 +448,8 @@ public class ChamadoView extends javax.swing.JFrame {
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
         txtId.setText(null);
-        txtSolicitante.setText(null);
-        txtSala.setText(null);
-        txtEquipamentoTag.setText(null);
+        txtUsuario.setText(null);
+        txtEquipamento.setText(null);
         txtProblemaRelatado.setText(null);
         txtDiagnostico.setText(null);
         txtData.setText(null);
@@ -546,7 +525,6 @@ public class ChamadoView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -564,12 +542,11 @@ public class ChamadoView extends javax.swing.JFrame {
     private javax.swing.JTable tblChamado;
     private javax.swing.JTextField txtData;
     private javax.swing.JTextField txtDiagnostico;
-    private javax.swing.JTextField txtEquipamentoTag;
+    private javax.swing.JTextField txtEquipamento;
     private javax.swing.JTextField txtId;
     private javax.swing.JComboBox<String> txtPrioridade;
     private javax.swing.JTextField txtProblemaRelatado;
-    private javax.swing.JTextField txtSala;
-    private javax.swing.JTextField txtSolicitante;
     private javax.swing.JComboBox<String> txtStatus;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

@@ -21,21 +21,20 @@ import java.util.List;
 public class ChamadoDAOImpl implements ChamadoDAO {
 
     public void salvar(Chamado chamado) {
-        String sql = "INSERT INTO chamado_tecnico (solicitante, sala, equipamento_tag,"
+        String sql = "INSERT INTO chamado_tecnico (id_solicitante, id_equipamento,"
                 + "problema_relatado, diagnostico_tecnico, prioridade,"
-                + "status, data_abertura) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                + "status, data_abertura) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection conn = ConnectionFactory.getConnection();
                 PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setString(1, chamado.getSolicitante());
-            stmt.setString(2, chamado.getSala());
-            stmt.setString(3, chamado.getEquipamentoTag());
-            stmt.setString(4, chamado.getProblemaRelatado());
-            stmt.setString(5, chamado.getDiagnosticoTecnico());
-            stmt.setString(6, chamado.getPrioridade());
-            stmt.setString(7, chamado.getStatus());
-            stmt.setDate(8, (Date) chamado.getDataAbertura());
+            stmt.setLong(1, chamado.getId_equipamento());
+            stmt.setLong(2, chamado.getId_usuario());
+            stmt.setString(3, chamado.getProblemaRelatado());
+            stmt.setString(4, chamado.getDiagnosticoTecnico());
+            stmt.setString(5, chamado.getPrioridade());
+            stmt.setString(6, chamado.getStatus());
+            stmt.setDate(7, (Date) chamado.getDataAbertura());
 
             stmt.executeUpdate();
 
@@ -60,9 +59,8 @@ public class ChamadoDAOImpl implements ChamadoDAO {
             while (rs.next()) {
                 Chamado u = new Chamado(
                         rs.getLong("id"),
-                        rs.getString("solicitante"),
-                        rs.getString("sala"),
-                        rs.getString("equipamento_tag"),
+                        rs.getLong("id_usuario"),
+                        rs.getLong("id_equipamento"),
                         rs.getString("problema_relatado"),
                         rs.getString("diagnostico_tecnico"),
                         rs.getString("prioridade"),
@@ -92,9 +90,8 @@ public class ChamadoDAOImpl implements ChamadoDAO {
             if (rs.next()) {
                 return new Chamado(
                         rs.getLong("id"),
-                        rs.getString("solicitante"),
-                        rs.getString("sala"),
-                        rs.getString("equipamento_tag"),
+                        rs.getLong("id_usuario"),
+                        rs.getLong("id_equipamento"),
                         rs.getString("problema_relatado"),
                         rs.getString("diagnostico_tecnico"),
                         rs.getString("prioridade"),
@@ -112,23 +109,22 @@ public class ChamadoDAOImpl implements ChamadoDAO {
 
     @Override
     public void atualizar(Chamado chamado) {
-        String sql = "UPDATE chamado_tecnico SET solicitante = ?, sala = ?,"
-                + "equipamento_tag = ?, problema_relatado = ?,"
+        String sql = "UPDATE chamado_tecnico SET id_usuario = ?, id_equipamento = ?"
+                + "problema_relatado = ?,"
                 + "diagnostico_tecnico = ?, prioridade = ?,"
                 + "status = ?, data_abertura = ? WHERE id = ?";
 
         try (Connection conn = ConnectionFactory.getConnection();
                 PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setString(1, chamado.getSolicitante());
-            stmt.setString(2, chamado.getSala());
-            stmt.setString(3, chamado.getEquipamentoTag());
-            stmt.setString(4, chamado.getProblemaRelatado());
-            stmt.setString(5, chamado.getDiagnosticoTecnico());
-            stmt.setString(6, chamado.getPrioridade());
-            stmt.setString(7, chamado.getStatus());
-            stmt.setDate(8, (Date) chamado.getDataAbertura());
-            stmt.setLong(9, chamado.getId());
+            stmt.setLong(1, chamado.getId_usuario());
+            stmt.setLong(2, chamado.getId_equipamento());
+            stmt.setString(3, chamado.getProblemaRelatado());
+            stmt.setString(4, chamado.getDiagnosticoTecnico());
+            stmt.setString(5, chamado.getPrioridade());
+            stmt.setString(6, chamado.getStatus());
+            stmt.setDate(7, (Date) chamado.getDataAbertura());
+            stmt.setLong(8, chamado.getId());
             stmt.executeUpdate();
 
         } catch (Exception e) {

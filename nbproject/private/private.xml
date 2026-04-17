@@ -4,13 +4,21 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Henrique/Documents/NetBeansProjec/ProjetoTI/src/br/ulbra/dao/ConnectionFactory.java</file>
+            <file>file:/C:/Users/Henrique/Documents/NetBeansProjec/ProjetoTI/src/br/ulbra/service/ChamadoService.java</file>
+            <file>file:/C:/Users/Henrique/Documents/NetBeansProjec/ProjetoTI/src/br/ulbra/dao/UsuarioDAOImpl.java</file>
+            <file>file:/C:/Users/Henrique/Documents/NetBeansProjec/ProjetoTI/src/br/ulbra/view/UsuarioView.java</file>
+            <file>file:/C:/Users/Henrique/Documents/NetBeansProjec/ProjetoTI/src/br/ulbra/service/UsuarioService.java</file>
+            <file>file:/C:/Users/Henrique/Documents/NetBeansProjec/ProjetoTI/src/db.properties</file>
+            <file>file:/C:/Users/Henrique/Documents/NetBeansProjec/ProjetoTI/src/br/ulbra/controller/UsuarioController.java</file>
+            <file>file:/C:/Users/Henrique/Documents/NetBeansProjec/ProjetoTI/src/br/ulbra/dao/ChamadoDAO.java</file>
+            <file>file:/C:/Users/Henrique/Documents/NetBeansProjec/ProjetoTI/src/br/ulbra/view/EquipamentoView.java</file>
+            <file>file:/C:/Users/Henrique/Documents/NetBeansProjec/ProjetoTI/src/br/ulbra/model/Equipamento.java</file>
             <file>file:/C:/Users/Henrique/Documents/NetBeansProjec/ProjetoTI/src/br/ulbra/model/Chamado.java</file>
             <file>file:/C:/Users/Henrique/Documents/NetBeansProjec/ProjetoTI/src/br/ulbra/dao/ChamadoDAOImpl.java</file>
-            <file>file:/C:/Users/Henrique/Documents/NetBeansProjec/ProjetoTI/src/br/ulbra/service/ChamadoService.java</file>
+            <file>file:/C:/Users/Henrique/Documents/NetBeansProjec/ProjetoTI/src/br/ulbra/model/Usuario.java</file>
             <file>file:/C:/Users/Henrique/Documents/NetBeansProjec/ProjetoTI/src/br/ulbra/controller/ChamadoController.java</file>
             <file>file:/C:/Users/Henrique/Documents/NetBeansProjec/ProjetoTI/src/br/ulbra/view/ChamadoView.java</file>
-            <file>file:/C:/Users/Henrique/Documents/NetBeansProjec/ProjetoTI/src/db.properties</file>
-            <file>file:/C:/Users/Henrique/Documents/NetBeansProjec/ProjetoTI/src/br/ulbra/dao/ChamadoDAO.java</file>
+            <file>file:/C:/Users/Henrique/Documents/NetBeansProjec/ProjetoTI/src/br/ulbra/dao/UsuarioDAO.java</file>
         </group>
     </open-files>
 </project-private>

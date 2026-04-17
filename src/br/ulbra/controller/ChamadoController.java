@@ -23,14 +23,13 @@ public class ChamadoController {
         this.service = new ChamadoService(new ChamadoDAOImpl());
     }
 
-    public String cadastrar(String solicitante, String sala, String equipamento_tag,
+    public String cadastrar(Long id_usuario, Long id_equipamento,
             String problema_relatado, String diagnostico_tecnico, String prioridade,
             String status, Date data_abertura) {
         try {
             Chamado chamado = new Chamado();
-            chamado.setSolicitante(solicitante);
-            chamado.setSala(sala);
-            chamado.setEquipamentoTag(equipamento_tag);
+            chamado.setId_usuario(id_usuario);
+            chamado.setId_equipamento(id_equipamento);
             chamado.setProblemaRelatado(problema_relatado);
             chamado.setDiagnosticoTecnico(diagnostico_tecnico);
             chamado.setPrioridade(prioridade);
@@ -49,11 +48,11 @@ public class ChamadoController {
         return service.listar();
     }
 
-    public String atualizar(Long id, String solicitante, String sala, String equipamento_tag,
+    public String atualizar(Long id, Long id_usuario, Long id_equipamento,
             String problema_relatado, String diagnostico_tecnico, String prioridade,
             String status, Date data_abertura) {
         try {
-            Chamado chamado = new Chamado(id, solicitante, sala, equipamento_tag,
+            Chamado chamado = new Chamado(id, id_usuario, id_equipamento,
                     problema_relatado, diagnostico_tecnico, prioridade,
                     status, data_abertura);
             service.atualizar(chamado);

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.ulbra.dao;
 
 import br.ulbra.model.Usuario;
@@ -13,10 +8,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Henrique
- */
 public class UsuarioDAOImpl implements UsuarioDAO {
 
     public void salvar(Usuario usuario) {
@@ -28,7 +19,8 @@ public class UsuarioDAOImpl implements UsuarioDAO {
             stmt.setString(1, usuario.getNome());
             stmt.setString(2, usuario.getCargo());
             stmt.setString(3, usuario.getEmail());
-            stmt.setString(4, usuario.getSenha());
+            String senhaCriptografada = BCrypt.hashpw(usuario.getSenha(), BCrypt.gensalt());
+            stmt.setString(4, senhaCriptografada);
 
             stmt.executeUpdate();
 

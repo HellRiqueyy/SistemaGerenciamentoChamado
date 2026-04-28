@@ -21,15 +21,15 @@ import java.util.List;
 public class ChamadoDAOImpl implements ChamadoDAO {
 
     public void salvar(Chamado chamado) {
-        String sql = "INSERT INTO chamado_tecnico (id_solicitante, id_equipamento,"
+        String sql = "INSERT INTO chamado_tecnico (id_usuario, id_equipamento,"
                 + "problema_relatado, diagnostico_tecnico, prioridade,"
                 + "status, data_abertura) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection conn = ConnectionFactory.getConnection();
                 PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setLong(1, chamado.getId_equipamento());
-            stmt.setLong(2, chamado.getId_usuario());
+            stmt.setLong(1, chamado.getId_usuario());
+            stmt.setLong(2, chamado.getId_equipamento());
             stmt.setString(3, chamado.getProblemaRelatado());
             stmt.setString(4, chamado.getDiagnosticoTecnico());
             stmt.setString(5, chamado.getPrioridade());
@@ -109,7 +109,7 @@ public class ChamadoDAOImpl implements ChamadoDAO {
 
     @Override
     public void atualizar(Chamado chamado) {
-        String sql = "UPDATE chamado_tecnico SET id_usuario = ?, id_equipamento = ?"
+        String sql = "UPDATE chamado_tecnico SET id_usuario = ?, id_equipamento = ?, "
                 + "problema_relatado = ?,"
                 + "diagnostico_tecnico = ?, prioridade = ?,"
                 + "status = ?, data_abertura = ? WHERE id = ?";

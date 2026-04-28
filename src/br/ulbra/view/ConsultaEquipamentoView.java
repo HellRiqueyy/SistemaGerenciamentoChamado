@@ -13,10 +13,10 @@ public class ConsultaEquipamentoView extends javax.swing.JFrame {
     public ConsultaEquipamentoView() {
         initComponents();
         this.setLocationRelativeTo(null);
-        carregarComboUsuarios();
+        carregarComboEquipamentos();
     }
 
-   public void carregarComboUsuarios() {
+   public void carregarComboEquipamentos() {
     String sql = "SELECT produto_tag FROM equipamento ORDER BY produto_tag";
 
     try (Connection con = ConnectionFactory.getConnection();

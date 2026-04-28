@@ -67,12 +67,6 @@ public class EquipamentoView extends javax.swing.JFrame {
         btnEditar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
         btnLimpar = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu4 = new javax.swing.JMenu();
-        menuChamado = new javax.swing.JMenuItem();
-        menuUsuario = new javax.swing.JMenuItem();
-        menuEquipamento = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -243,39 +237,6 @@ public class EquipamentoView extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 810));
 
-        jMenu4.setText("Cadastros");
-
-        menuChamado.setText("Chamado");
-        menuChamado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuChamadoActionPerformed(evt);
-            }
-        });
-        jMenu4.add(menuChamado);
-
-        menuUsuario.setText("Usuário");
-        menuUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuUsuarioActionPerformed(evt);
-            }
-        });
-        jMenu4.add(menuUsuario);
-
-        menuEquipamento.setText("Equipamento");
-        menuEquipamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuEquipamentoActionPerformed(evt);
-            }
-        });
-        jMenu4.add(menuEquipamento);
-
-        jMenuBar1.add(jMenu4);
-
-        jMenu3.setText("Sobre");
-        jMenuBar1.add(jMenu3);
-
-        setJMenuBar(jMenuBar1);
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -347,30 +308,6 @@ public class EquipamentoView extends javax.swing.JFrame {
         txtId.setFocusable(true);
     }//GEN-LAST:event_btnLimparActionPerformed
 
-    private void menuChamadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuChamadoActionPerformed
-        ChamadoView chamadoView = new ChamadoView();
-
-        chamadoView.setVisible(true);
-
-        this.dispose();
-    }//GEN-LAST:event_menuChamadoActionPerformed
-
-    private void menuUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuUsuarioActionPerformed
-        UsuarioView usuarioView = new UsuarioView();
-
-        usuarioView.setVisible(true);
-
-        this.dispose();
-    }//GEN-LAST:event_menuUsuarioActionPerformed
-
-    private void menuEquipamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuEquipamentoActionPerformed
-        EquipamentoView equipamentoView = new EquipamentoView();
-
-        equipamentoView.setVisible(true);
-
-        this.dispose();
-    }//GEN-LAST:event_menuEquipamentoActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -416,14 +353,8 @@ public class EquipamentoView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JMenuItem menuChamado;
-    private javax.swing.JMenuItem menuEquipamento;
-    private javax.swing.JMenuItem menuUsuario;
     private javax.swing.JTable tblEquipamento;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtProduto;

@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import org.mindrot.jbcrypt.BCrypt;
 
 public class UsuarioDAOImpl implements UsuarioDAO {
 
@@ -25,7 +26,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
             stmt.executeUpdate();
 
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("ERRO AO SALVAR!\n" + e);
         }
     }
 
@@ -119,6 +120,36 @@ public class UsuarioDAOImpl implements UsuarioDAO {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public Usuario logar(String email, String senhaDigitada) {
+        // Buscamos apenas pelo e-mail, pois não podemos comparar o hash no SQL
+        String sql = "SELECT * FROM usuario WHERE email = ?";
+
+        try (Connection conn = ConnectionFactory.getConnection();
+                PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, email);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    String senhaBanco = rs.getString("senha");
+
+                    // COMPARAÇÃO SEGURA:
+                    // O BCrypt verifica se a senha digitada bate com o hash salvo
+                    if (BCrypt.checkpw(senhaDigitada, senhaBanco)) {
+                        Usuario u = new Usuario();
+                        u.setId(rs.getLong("id"));
+                        u.setNome(rs.getString("nome"));
+                        u.setEmail(rs.getString("email"));
+                        return u;
+                    }
+                }
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("Erro no login: " + e.getMessage());
+        }
+        return null; // Login falhou
     }
 
 }
